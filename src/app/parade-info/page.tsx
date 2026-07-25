@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { MapPin, Clock, Calendar, Car, Train, AlertTriangle, Ticket, ArrowRight } from "lucide-react";
 import SectionHeading from "@/components/SectionHeading";
-import CountdownTimer from "@/components/CountdownTimer";
+import { CountdownTimer } from "@/components/CountdownTimer";
 import { PARADE_INFO } from "@/lib/data";
 
 export const metadata = {
@@ -34,7 +34,7 @@ export default function ParadeInfoPage() {
           <SectionHeading title="Key Details" />
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 mt-8">
             {[
-              { icon: Calendar, title: "Date", detail: "Saturday, March 14, 2026" },
+              { icon: Calendar, title: "Date", detail: "Saturday, March 13, 2027" },
               { icon: Clock, title: "Parade Start", detail: "12:00 PM" },
               { icon: MapPin, title: "Route", detail: "Columbus Drive, Balbo to Monroe" },
               { icon: Clock, title: "River Dyeing", detail: "9:00 AM at Michigan Ave" },

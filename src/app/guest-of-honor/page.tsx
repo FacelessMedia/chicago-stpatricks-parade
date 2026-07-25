@@ -4,7 +4,7 @@ import { PARADE_INFO } from "@/lib/data";
 
 export const metadata = {
   title: "Guest of Honor | Chicago St. Patrick's Day Parade",
-  description: `Meet the ${PARADE_INFO.year} Guest of Honor of the Chicago St. Patrick's Day Parade.`,
+  description: "Meet the Guest of Honor of the Chicago St. Patrick's Day Parade.",
 };
 
 export default function GuestOfHonorPage() {
@@ -16,7 +16,7 @@ export default function GuestOfHonorPage() {
         </div>
         <div className="relative z-10 max-w-4xl mx-auto">
           <Award className="w-16 h-16 text-gold-400 mx-auto mb-6" />
-          <p className="text-gold-400 text-sm font-semibold uppercase tracking-widest mb-4">{PARADE_INFO.year} Guest of Honor</p>
+          <p className="text-gold-400 text-sm font-semibold uppercase tracking-widest mb-4">{PARADE_INFO.guestOfHonor.title}</p>
           <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold font-heading mb-4 text-shadow">
             {PARADE_INFO.guestOfHonor.name}
           </h1>
@@ -30,16 +30,20 @@ export default function GuestOfHonorPage() {
             <div className="prose prose-lg max-w-none text-charcoal/70 space-y-6">
               <p className="text-lg leading-relaxed">{PARADE_INFO.guestOfHonor.bio}</p>
               <p>
-                The Shannon Rovers will be honored throughout the {PARADE_INFO.year} parade season,
+                The Shannon Rovers were honored throughout the 2026 parade season,
                 celebrating a century of Irish music and culture in the city of Chicago.
                 Their performances have been a cornerstone of Chicago&apos;s Irish identity, and this
                 milestone anniversary marks an extraordinary achievement in cultural preservation.
               </p>
               <p>
-                Founded in 1926, the same year as this parade&apos;s {PARADE_INFO.year} celebration, the
-                Shannon Rovers have performed at countless civic events, cultural celebrations, and
-                community gatherings. Their dedication to traditional Irish pipe band music has inspired
-                generations of musicians and kept the spirit of Ireland alive in the heart of America.
+                Founded in 1926, the Shannon Rovers have performed at countless civic events,
+                cultural celebrations, and community gatherings. Their dedication to traditional
+                Irish pipe band music has inspired generations of musicians and kept the spirit
+                of Ireland alive in the heart of America.
+              </p>
+              <p className="bg-gold-50 border border-gold-200 rounded-xl p-4 text-charcoal/70">
+                The <strong>{PARADE_INFO.year} Guest of Honor</strong> will be announced ahead of the
+                upcoming parade season — check back soon!
               </p>
             </div>
           </div>

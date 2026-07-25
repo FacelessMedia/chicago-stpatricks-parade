@@ -9,12 +9,10 @@ interface TimeLeft {
   seconds: number;
 }
 
-export default function CountdownTimer({ targetDate }: { targetDate: string }) {
-  const [timeLeft, setTimeLeft] = useState<TimeLeft>({ days: 0, hours: 0, minutes: 0, seconds: 0 });
-  const [mounted, setMounted] = useState(false);
+export function CountdownTimer({ targetDate }: { targetDate: string }) {
+  const [timeLeft, setTimeLeft] = useState<TimeLeft | null>(null);
 
   useEffect(() => {
-    setMounted(true);
     const calculate = () => {
       const diff = new Date(targetDate).getTime() - new Date().getTime();
       if (diff <= 0) {
@@ -28,16 +26,19 @@ export default function CountdownTimer({ targetDate }: { targetDate: string }) {
         seconds: Math.floor((diff / 1000) % 60),
       });
     };
-    calculate();
+    const initialUpdate = setTimeout(calculate, 0);
     const interval = setInterval(calculate, 1000);
-    return () => clearInterval(interval);
+    return () => {
+      clearTimeout(initialUpdate);
+      clearInterval(interval);
+    };
   }, [targetDate]);
 
   const blocks = [
-    { label: "Days", value: timeLeft.days },
-    { label: "Hours", value: timeLeft.hours },
-    { label: "Minutes", value: timeLeft.minutes },
-    { label: "Seconds", value: timeLeft.seconds },
+    { label: "Days", value: timeLeft?.days },
+    { label: "Hours", value: timeLeft?.hours },
+    { label: "Minutes", value: timeLeft?.minutes },
+    { label: "Seconds", value: timeLeft?.seconds },
   ];
 
   return (
@@ -46,7 +47,7 @@ export default function CountdownTimer({ targetDate }: { targetDate: string }) {
         <div key={block.label} className="flex flex-col items-center">
           <div className="glass-card rounded-xl px-4 py-3 sm:px-6 sm:py-4 min-w-[70px] sm:min-w-[90px] h-[54px] sm:h-[64px] md:h-[76px] text-center flex items-center justify-center">
             <span className="text-3xl sm:text-4xl md:text-5xl font-bold text-white tabular-nums">
-              {mounted ? String(block.value).padStart(2, "0") : "--"}
+              {block.value === undefined ? "--" : String(block.value).padStart(2, "0")}
             </span>
           </div>
           <span className="text-emerald-300 text-xs sm:text-sm mt-2 uppercase tracking-wider">

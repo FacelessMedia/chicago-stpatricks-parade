@@ -167,13 +167,13 @@ export default function QueenContestPage() {
               </h3>
               <p className="text-charcoal/70 mb-4">
                 The Queen Contest is open to young women of Irish heritage from the Chicagoland area.
-                Registration typically opens in the fall for the following year&apos;s parade. The 2026 contest
-                took place on January 11, 2026, with registration closing on January 5, 2026.
+                Registration typically opens in the fall for the following year&apos;s parade. The 2027 contest
+                is expected to take place in January 2027 — registration details will be announced this fall.
               </p>
               <p className="text-charcoal/60 text-sm">
                 Contact us at{" "}
-                <a href="mailto:parade@chicagostpatricksdayparade.com" className="text-emerald-700 hover:text-emerald-600 font-semibold">
-                  parade@chicagostpatricksdayparade.com
+                <a href="mailto:parade@chicagostpatricksdayparade.org" className="text-emerald-700 hover:text-emerald-600 font-semibold">
+                  parade@chicagostpatricksdayparade.org
                 </a>
                 {" "}for more information about future contests.
               </p>

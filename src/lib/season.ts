@@ -1,5 +1,18 @@
 export type Season = "off-season" | "early-season" | "peak-season" | "post-parade";
 
+/**
+ * Committee override for the two-mode system:
+ *   NEXT_PUBLIC_SEASON_OVERRIDE = "active"  → force purchases/registration open
+ *   NEXT_PUBLIC_SEASON_OVERRIDE = "off"     → force showcase-only mode
+ *   unset / "auto"                          → date-based season logic
+ */
+function seasonOverride(): "active" | "off" | null {
+  const value = (process.env.NEXT_PUBLIC_SEASON_OVERRIDE || "").toLowerCase();
+  if (value === "active") return "active";
+  if (value === "off") return "off";
+  return null;
+}
+
 export function getCurrentSeason(now?: Date): Season {
   const date = now || new Date();
   const month = date.getMonth(); // 0-indexed
@@ -16,13 +29,24 @@ export function getCurrentSeason(now?: Date): Season {
 }
 
 export function isRegistrationOpen(season?: Season): boolean {
+  const override = seasonOverride();
+  if (override) return override === "active";
   const s = season || getCurrentSeason();
   return s === "early-season" || s === "peak-season";
 }
 
 export function isPurchaseOpen(season?: Season): boolean {
+  const override = seasonOverride();
+  if (override) return override === "active";
   const s = season || getCurrentSeason();
   return s === "early-season" || s === "peak-season";
+}
+
+/** Label for when sales next open, e.g. "November 2026". */
+export function getSalesOpenLabel(now?: Date): string {
+  const date = now || new Date();
+  const year = date.getMonth() >= 10 ? date.getFullYear() + 1 : date.getFullYear();
+  return `November ${year}`;
 }
 
 export function getParadeDate(year?: number): Date {

@@ -85,8 +85,8 @@ export default function Footer() {
               </li>
               <li className="flex items-center gap-3">
                 <Mail className="w-4 h-4 text-gold-500 shrink-0" />
-                <a href="mailto:parade@chicagostpatricksdayparade.com" className="text-emerald-300 hover:text-gold-400 text-sm transition-colors">
-                  parade@chicagostpatricksdayparade.com
+                <a href="mailto:parade@chicagostpatricksdayparade.org" className="text-emerald-300 hover:text-gold-400 text-sm transition-colors">
+                  parade@chicagostpatricksdayparade.org
                 </a>
               </li>
             </ul>

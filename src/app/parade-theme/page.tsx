@@ -4,7 +4,7 @@ import { PARADE_INFO } from "@/lib/data";
 
 export const metadata = {
   title: "Parade Theme | Chicago St. Patrick's Day Parade",
-  description: `The ${PARADE_INFO.year} Chicago St. Patrick's Day Parade theme: ${PARADE_INFO.theme}`,
+  description: `The ${PARADE_INFO.year} Chicago St. Patrick's Day Parade theme will be announced ahead of the season.`,
 };
 
 export default function ParadeThemePage() {
@@ -29,14 +29,15 @@ export default function ParadeThemePage() {
           <div className="bg-white rounded-2xl p-8 md:p-12 border border-emerald-100 shadow-xl">
             <div className="prose prose-lg max-w-none text-charcoal/70 space-y-6">
               <p>
-                The {PARADE_INFO.year} Chicago St. Patrick&apos;s Day Parade proudly carries the theme
-                <strong className="text-emerald-800"> &ldquo;{PARADE_INFO.theme}&rdquo;</strong> — a message
-                that resonates deeply with the values of the Irish-American community and the spirit of
-                St. Patrick himself.
+                Each year, the parade committee selects a theme that captures the spirit of the
+                celebration and the values of Chicago&apos;s Irish-American community. The{" "}
+                <strong className="text-emerald-800">{PARADE_INFO.year} theme will be announced
+                ahead of the parade season</strong> — check back soon!
               </p>
               <p>
-                This year&apos;s theme reflects the three pillars that have sustained the Irish community
-                through centuries of challenge and triumph:
+                The 2026 parade carried the theme <strong className="text-emerald-800">&ldquo;Faith,
+                Peace &amp; Unity&rdquo;</strong>, reflecting the three pillars that have sustained the
+                Irish community through centuries of challenge and triumph:
               </p>
               <div className="grid sm:grid-cols-3 gap-6 my-8">
                 {[
@@ -51,14 +52,14 @@ export default function ParadeThemePage() {
                 ))}
               </div>
               <p>
-                Under the leadership of Grand Marshal {PARADE_INFO.grandMarshal.name} and with the
-                Shannon Rovers celebrating their historic 100th anniversary as Guest of Honor, this
-                year&apos;s parade embodies the theme in every float, every band, and every marching unit
-                that processes down Columbus Drive.
+                Under the leadership of 2026 Grand Marshal {PARADE_INFO.grandMarshal.name} and with the
+                Shannon Rovers celebrating their historic 100th anniversary as Guest of Honor, last
+                season&apos;s parade embodied the theme in every float, every band, and every marching unit
+                that processed down Columbus Drive.
               </p>
               <p>
-                We invite all participants to incorporate the theme of {PARADE_INFO.theme} into their
-                parade entries, ad book advertisements, and celebrations throughout the season.
+                Once announced, we invite all participants to incorporate the {PARADE_INFO.year} theme
+                into their parade entries, ad book advertisements, and celebrations throughout the season.
               </p>
             </div>
           </div>

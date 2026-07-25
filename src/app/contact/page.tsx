@@ -1,5 +1,5 @@
-import { Mail, MapPin, Clover } from "lucide-react";
-import SectionHeading from "@/components/SectionHeading";
+import { Mail, MapPin } from "lucide-react";
+import { ContactForm } from "@/components/ContactForm";
 
 export const metadata = {
   title: "Contact | Chicago St. Patrick's Day Parade",
@@ -32,8 +32,8 @@ export default function ContactPage() {
               <div className="bg-white rounded-2xl p-6 border border-emerald-100">
                 <Mail className="w-6 h-6 text-emerald-700 mb-3" />
                 <h3 className="font-bold text-charcoal mb-1">Email</h3>
-                <a href="mailto:parade@chicagostpatricksdayparade.com" className="text-emerald-700 hover:text-emerald-600 text-sm transition-colors">
-                  parade@chicagostpatricksdayparade.com
+                <a href="mailto:parade@chicagostpatricksdayparade.org" className="text-emerald-700 hover:text-emerald-600 text-sm transition-colors">
+                  parade@chicagostpatricksdayparade.org
                 </a>
               </div>
               <div className="bg-white rounded-2xl p-6 border border-emerald-100">
@@ -47,57 +47,7 @@ export default function ContactPage() {
 
             {/* Contact Form */}
             <div className="lg:col-span-2">
-              <div className="bg-white rounded-2xl p-8 border border-emerald-100 shadow-lg">
-                <div className="flex items-center gap-3 mb-6">
-                  <Clover className="w-5 h-5 text-emerald-600" />
-                  <h2 className="text-2xl font-bold text-charcoal font-heading">Send Us a Message</h2>
-                </div>
-                <form className="space-y-5">
-                  <div className="grid sm:grid-cols-2 gap-5">
-                    <div>
-                      <label className="block text-sm font-medium text-charcoal mb-1.5">First Name</label>
-                      <input type="text" className="w-full px-4 py-3 rounded-xl border border-emerald-200 focus:border-emerald-500 focus:ring-2 focus:ring-emerald-500/20 outline-none transition-all text-charcoal bg-cream" placeholder="John" />
-                    </div>
-                    <div>
-                      <label className="block text-sm font-medium text-charcoal mb-1.5">Last Name</label>
-                      <input type="text" className="w-full px-4 py-3 rounded-xl border border-emerald-200 focus:border-emerald-500 focus:ring-2 focus:ring-emerald-500/20 outline-none transition-all text-charcoal bg-cream" placeholder="O'Brien" />
-                    </div>
-                  </div>
-                  <div>
-                    <label className="block text-sm font-medium text-charcoal mb-1.5">Email</label>
-                    <input type="email" className="w-full px-4 py-3 rounded-xl border border-emerald-200 focus:border-emerald-500 focus:ring-2 focus:ring-emerald-500/20 outline-none transition-all text-charcoal bg-cream" placeholder="john@example.com" />
-                  </div>
-                  <div>
-                    <label className="block text-sm font-medium text-charcoal mb-1.5">Phone</label>
-                    <input type="tel" className="w-full px-4 py-3 rounded-xl border border-emerald-200 focus:border-emerald-500 focus:ring-2 focus:ring-emerald-500/20 outline-none transition-all text-charcoal bg-cream" placeholder="(312) 555-0000" />
-                  </div>
-                  <div>
-                    <label className="block text-sm font-medium text-charcoal mb-1.5">Subject</label>
-                    <select className="w-full px-4 py-3 rounded-xl border border-emerald-200 focus:border-emerald-500 focus:ring-2 focus:ring-emerald-500/20 outline-none transition-all text-charcoal bg-cream">
-                      <option>General Inquiry</option>
-                      <option>Sponsorship Packages</option>
-                      <option>Parade Entry</option>
-                      <option>Grandstand Seats</option>
-                      <option>CBC Dinner</option>
-                      <option>Queen Contest</option>
-                      <option>Raffle Tickets</option>
-                      <option>Ad Book</option>
-                      <option>Media / Press</option>
-                      <option>Other</option>
-                    </select>
-                  </div>
-                  <div>
-                    <label className="block text-sm font-medium text-charcoal mb-1.5">Message</label>
-                    <textarea rows={5} className="w-full px-4 py-3 rounded-xl border border-emerald-200 focus:border-emerald-500 focus:ring-2 focus:ring-emerald-500/20 outline-none transition-all text-charcoal bg-cream resize-none" placeholder="How can we help you?" />
-                  </div>
-                  <button
-                    type="submit"
-                    className="w-full px-8 py-4 bg-emerald-800 hover:bg-emerald-700 text-white font-bold rounded-full transition-all text-lg"
-                  >
-                    Send Message
-                  </button>
-                </form>
-              </div>
+              <ContactForm />
             </div>
           </div>
         </div>

@@ -101,9 +101,15 @@ export default function PackagesPage() {
                 <p className="text-emerald-200 text-sm leading-relaxed mb-4">{item.description}</p>
                 {item.limited && (
                   <span className="inline-block px-3 py-1 bg-red-500/20 text-red-300 text-xs font-bold rounded-full mb-4">
-                    Limited — Only {item.maxQuantity} Available
+                    Limited — 750 tickets sold annually
                   </span>
                 )}
+                <Link
+                  href={item.href}
+                  className="mt-auto inline-flex items-center gap-2 text-sm font-bold text-gold-400 hover:text-gold-300"
+                >
+                  Purchase {item.name} <ArrowRight className="w-4 h-4" />
+                </Link>
               </div>
             ))}
           </div>

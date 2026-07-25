@@ -1,6 +1,10 @@
 import Link from "next/link";
 import { BookOpen, ArrowRight, Upload, Check } from "lucide-react";
 import SectionHeading from "@/components/SectionHeading";
+import { PurchaseOptionsForm } from "@/components/PurchaseOptionsForm";
+import { SalesClosedCard } from "@/components/SalesClosedCard";
+import { ALA_CARTE_ITEMS } from "@/lib/data";
+import { isPurchaseOpen } from "@/lib/season";
 
 export const metadata = {
   title: "Parade Ad Book | Chicago St. Patrick's Day Parade",
@@ -8,6 +12,17 @@ export const metadata = {
 };
 
 export default function AdBookPage() {
+  const products = ALA_CARTE_ITEMS.filter((item) => item.id.startsWith("ad-"));
+  const purchaseOptions = products.map((item) => ({
+    itemId: item.id,
+    name: item.name,
+    description: item.description,
+    price: item.price,
+    priceLabel: item.priceLabel,
+    unitLabel: item.unit,
+    maxQuantity: item.maxQuantity,
+  }));
+
   return (
     <>
       <section className="relative py-32 px-4 hero-gradient text-white text-center overflow-hidden">
@@ -36,20 +51,23 @@ export default function AdBookPage() {
             {[
               {
                 name: "Full Page Color",
+                price: "$1,000",
                 desc: "Maximum impact with a full page color advertisement",
-                features: ["Full page (8.5\" x 11\")", "Full color printing", "Premium placement", "Deadline: Jan 30, 2026"],
+                features: ["Full page (8.5\" x 11\")", "Full color printing", "Premium placement", "Deadline: Jan 29, 2027"],
                 highlight: true,
               },
               {
                 name: "Full Page B&W",
+                price: "$750",
                 desc: "Classic full page black and white advertisement",
-                features: ["Full page (8.5\" x 11\")", "Black & white printing", "Standard placement", "Deadline: Jan 30, 2026"],
+                features: ["Full page (8.5\" x 11\")", "Black & white printing", "Standard placement", "Deadline: Jan 29, 2027"],
                 highlight: false,
               },
               {
                 name: "Half Page B&W",
+                price: "$500",
                 desc: "Cost-effective half page ad — included with parade entry",
-                features: ["Half page (8.5\" x 5.5\")", "Black & white printing", "Included with parade entry", "Deadline: Jan 30, 2026"],
+                features: ["Half page (8.5\" x 5.5\")", "Black & white printing", "Included with parade entry", "Deadline: Jan 29, 2027"],
                 highlight: false,
               },
             ].map((ad, i) => (
@@ -66,7 +84,8 @@ export default function AdBookPage() {
                     Best Value
                   </span>
                 )}
-                <h3 className="text-xl font-bold mb-2">{ad.name}</h3>
+                <h3 className="text-xl font-bold mb-1">{ad.name}</h3>
+                <p className={`font-bold mb-3 ${ad.highlight ? "text-gold-300" : "text-emerald-700"}`}>{ad.price}</p>
                 <p className={`text-sm mb-6 ${ad.highlight ? "text-emerald-200" : "text-charcoal/60"}`}>{ad.desc}</p>
                 <ul className="space-y-2 flex-1 mb-6">
                   {ad.features.map((f, j) => (
@@ -77,18 +96,35 @@ export default function AdBookPage() {
                   ))}
                 </ul>
                 <Link
-                  href="/register"
+                  href="#purchase-ad"
                   className={`block text-center py-3 px-6 rounded-full font-semibold transition-all ${
                     ad.highlight
                       ? "bg-gold-500 hover:bg-gold-400 text-emerald-950"
                       : "bg-emerald-700 hover:bg-emerald-600 text-white"
                   }`}
                 >
-                  Get Started
+                  Purchase Ad
                 </Link>
               </div>
             ))}
           </div>
+        </div>
+      </section>
+
+      <section id="purchase-ad" className="py-20 px-4 bg-white scroll-mt-24">
+        <div className="max-w-3xl mx-auto">
+          {isPurchaseOpen() ? (
+            <PurchaseOptionsForm
+              title="Purchase an Ad"
+              description="Choose the ad size, enter your contact details, and continue to secure sandbox checkout."
+              options={purchaseOptions}
+              noteLabel="Organization or artwork notes"
+              notePlaceholder="Optional notes for the ad book team"
+              footnote="Your confirmation email will include secure artwork-submission instructions."
+            />
+          ) : (
+            <SalesClosedCard title="Ad Book Sales" />
+          )}
         </div>
       </section>
 
@@ -117,7 +153,7 @@ export default function AdBookPage() {
               </li>
               <li className="flex items-start gap-3">
                 <Check className="w-5 h-5 text-emerald-600 shrink-0 mt-0.5" />
-                <span><strong>Deadline:</strong> Friday, January 30, 2026</span>
+                <span><strong>Deadline:</strong> Friday, January 29, 2027</span>
               </li>
             </ul>
             <p className="mt-6 text-charcoal/60 text-sm">
@@ -132,10 +168,10 @@ export default function AdBookPage() {
         <div className="max-w-2xl mx-auto">
           <h2 className="text-2xl font-bold font-heading text-charcoal mb-4">Ready to Advertise?</h2>
           <p className="text-charcoal/60 mb-6">
-            Register now and select your ad size during the registration process.
+            Purchase an ad directly above, or include one with a sponsorship package.
           </p>
-          <Link href="/register" className="inline-flex items-center gap-2 px-8 py-4 bg-emerald-800 hover:bg-emerald-700 text-white font-bold rounded-full transition-all">
-            Register Now <ArrowRight className="w-5 h-5" />
+          <Link href="#purchase-ad" className="inline-flex items-center gap-2 px-8 py-4 bg-emerald-800 hover:bg-emerald-700 text-white font-bold rounded-full transition-all">
+            Purchase an Ad <ArrowRight className="w-5 h-5" />
           </Link>
         </div>
       </section>

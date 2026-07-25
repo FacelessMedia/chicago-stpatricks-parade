@@ -1,6 +1,7 @@
 import Link from "next/link";
-import { Camera, ArrowRight, Upload, Clover } from "lucide-react";
+import { Camera, ArrowRight, Upload } from "lucide-react";
 import SectionHeading from "@/components/SectionHeading";
+import { GalleryGrid } from "@/components/GalleryGrid";
 
 export const metadata = {
   title: "Gallery | Chicago St. Patrick's Day Parade",
@@ -28,24 +29,11 @@ export default function GalleryPage() {
       <section className="py-20 px-4 bg-cream">
         <div className="max-w-6xl mx-auto">
           <SectionHeading
-            title="Gallery Coming Soon"
-            subtitle="We're curating an incredible collection of photos from parades past and present"
+            title="Moments Through the Years"
+            subtitle="The green river, the queens, the marchers, and the community that makes it all possible"
           />
 
-          {/* Placeholder Grid */}
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 mt-12">
-            {[...Array(12)].map((_, i) => (
-              <div
-                key={i}
-                className="aspect-square bg-gradient-to-br from-emerald-100 to-emerald-200 rounded-2xl flex items-center justify-center group hover:from-emerald-200 hover:to-emerald-300 transition-all duration-300"
-              >
-                <div className="text-center">
-                  <Clover className="w-8 h-8 text-emerald-400 mx-auto mb-2 group-hover:text-emerald-600 transition-colors" />
-                  <p className="text-emerald-500 text-xs font-medium">Photo Coming Soon</p>
-                </div>
-              </div>
-            ))}
-          </div>
+          <GalleryGrid />
 
           {/* Submit Photos */}
           <div className="mt-16 bg-white rounded-2xl p-8 md:p-12 border border-emerald-100 text-center">

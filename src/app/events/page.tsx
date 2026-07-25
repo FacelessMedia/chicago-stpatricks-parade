@@ -42,26 +42,26 @@ export default function EventsPage() {
                 <div className="flex-1">
                   <div className="flex flex-wrap items-center gap-3 mb-3">
                     <h3 className="text-2xl font-bold text-charcoal font-heading">Annual Corned Beef & Cabbage Dinner</h3>
-                    <span className="px-3 py-1 bg-charcoal/10 text-charcoal/50 text-xs font-bold rounded-full uppercase">Event Completed</span>
+                    <span className="px-3 py-1 bg-gold-100 text-gold-700 text-xs font-bold rounded-full uppercase">Date To Be Announced</span>
                   </div>
                   <div className="flex flex-wrap gap-4 mb-4 text-sm">
-                    <span className="flex items-center gap-1.5 text-charcoal/50"><Calendar className="w-4 h-4" /> Thursday, January 29, 2026</span>
+                    <span className="flex items-center gap-1.5 text-charcoal/50"><Calendar className="w-4 h-4" /> January 2027 — Date To Be Announced</span>
                     <span className="flex items-center gap-1.5 text-charcoal/50"><Clock className="w-4 h-4" /> 6:00 PM</span>
                     <span className="flex items-center gap-1.5 text-charcoal/50"><MapPin className="w-4 h-4" /> Chicago</span>
                   </div>
                   <p className="text-charcoal/70 leading-relaxed mb-4">
                     The Annual Corned Beef & Cabbage Dinner is one of the highlights of the parade season.
-                    Hundreds of guests gathered for an evening of traditional Irish food, entertainment, and camaraderie.
-                    The dinner featured jumbo screen video advertisements, the presentation of the Grand Marshal
+                    Hundreds of guests gather for an evening of traditional Irish food, entertainment, and camaraderie.
+                    The dinner features jumbo screen video advertisements, the presentation of the Grand Marshal
                     and Guest of Honor, and plenty of Irish hospitality.
                   </p>
                   <p className="text-charcoal/70 leading-relaxed mb-6">
                     Tables for 10 guests are included with all sponsorship packages.
                   </p>
                   <div className="flex gap-4">
-                    <span className="inline-flex items-center gap-2 px-6 py-3 bg-charcoal/10 text-charcoal/40 font-semibold rounded-full text-sm cursor-not-allowed">
-                      See You Next Year!
-                    </span>
+                    <Link href="/cbc-dinner" className="inline-flex items-center gap-2 px-6 py-3 bg-emerald-800 hover:bg-emerald-700 text-white font-semibold rounded-full text-sm transition-all">
+                      <Ticket className="w-4 h-4" /> Purchase Seats or a Table
+                    </Link>
                   </div>
                 </div>
               </div>
@@ -76,7 +76,7 @@ export default function EventsPage() {
                 <div className="flex-1">
                   <h3 className="text-2xl font-bold text-charcoal font-heading mb-3">Dyeing of the Chicago River</h3>
                   <div className="flex flex-wrap gap-4 mb-4 text-sm">
-                    <span className="flex items-center gap-1.5 text-emerald-700"><Calendar className="w-4 h-4" /> Saturday, March 14, 2026</span>
+                    <span className="flex items-center gap-1.5 text-emerald-700"><Calendar className="w-4 h-4" /> Saturday, March 13, 2027</span>
                     <span className="flex items-center gap-1.5 text-emerald-700"><Clock className="w-4 h-4" /> 9:00 AM</span>
                     <span className="flex items-center gap-1.5 text-emerald-700"><MapPin className="w-4 h-4" /> Chicago River at Michigan Avenue</span>
                   </div>
@@ -105,15 +105,14 @@ export default function EventsPage() {
                 <div className="flex-1">
                   <h3 className="text-2xl font-bold text-charcoal font-heading mb-3">The {PARADE_INFO.year} Parade</h3>
                   <div className="flex flex-wrap gap-4 mb-4 text-sm">
-                    <span className="flex items-center gap-1.5 text-emerald-700"><Calendar className="w-4 h-4" /> Saturday, March 14, 2026</span>
+                    <span className="flex items-center gap-1.5 text-emerald-700"><Calendar className="w-4 h-4" /> Saturday, March 13, 2027</span>
                     <span className="flex items-center gap-1.5 text-emerald-700"><Clock className="w-4 h-4" /> 12:00 PM</span>
                     <span className="flex items-center gap-1.5 text-emerald-700"><MapPin className="w-4 h-4" /> Columbus Drive, Balbo to Monroe</span>
                   </div>
                   <p className="text-charcoal/70 leading-relaxed mb-4">
                     The main event! Over 100 units including floats, marching bands, Irish dance troupes,
-                    bagpipe bands, and community organizations process down Columbus Drive. Led by the
-                    Grand Marshal {PARADE_INFO.grandMarshal.name} and Guest of Honor {PARADE_INFO.guestOfHonor.name},
-                    this year&apos;s theme is &ldquo;{PARADE_INFO.theme}&rdquo;.
+                    bagpipe bands, and community organizations process down Columbus Drive. The {PARADE_INFO.year}{" "}
+                    Grand Marshal, Guest of Honor, and parade theme will be announced ahead of the season.
                   </p>
                   <div className="flex flex-col sm:flex-row gap-3 sm:gap-4">
                     <Link href="/grandstand-seats" className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-emerald-800 hover:bg-emerald-700 text-white font-semibold rounded-full transition-all text-sm">

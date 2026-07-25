@@ -29,8 +29,8 @@ export default function SponsorsPage() {
       <section className="py-20 px-4 bg-cream">
         <div className="max-w-6xl mx-auto">
           <SectionHeading
-            title="2026 Sponsors"
-            subtitle="These organizations proudly support the Chicago St. Patrick's Day Parade"
+            title="Our Sponsors"
+            subtitle="These organizations proudly supported the 2026 parade — join them for 2027"
           />
 
           <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4 mt-12">

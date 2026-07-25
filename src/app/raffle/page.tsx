@@ -1,12 +1,17 @@
-"use client";
-
-import { useState } from "react";
 import Link from "next/link";
-import { Ticket, Gift, ArrowRight, Minus, Plus, AlertTriangle } from "lucide-react";
+import { Gift, ArrowRight, AlertTriangle } from "lucide-react";
 import SectionHeading from "@/components/SectionHeading";
+import { PurchaseCard } from "@/components/PurchaseCard";
+import { SalesClosedCard } from "@/components/SalesClosedCard";
+import { isPurchaseOpen } from "@/lib/season";
+
+export const metadata = {
+  title: "Raffle Tickets | Chicago St. Patrick's Day Parade",
+  description:
+    "Annual raffle — only 750 tickets sold at $100 each. Win $25,000 cash or roundtrip tickets to Dublin, Ireland.",
+};
 
 export default function RafflePage() {
-  const [quantity, setQuantity] = useState(1);
   const pricePerTicket = 100;
   const totalAvailable = 750;
   const estimatedSold = 310;
@@ -69,68 +74,20 @@ export default function RafflePage() {
             </div>
 
             {/* Purchase Card */}
-            <div className="bg-white rounded-2xl p-8 border border-emerald-100 shadow-xl h-fit sticky top-28">
-              <div className="flex items-center gap-3 mb-2">
-                <Ticket className="w-6 h-6 text-gold-500" />
-                <h3 className="text-2xl font-bold text-charcoal font-heading">Purchase Raffle Tickets</h3>
-              </div>
-              <p className="text-3xl font-bold text-emerald-800 mb-6">
-                ${pricePerTicket} <span className="text-base font-normal text-charcoal/60">per ticket</span>
-              </p>
-
-              <div className="space-y-5">
-                <div>
-                  <label className="block text-sm font-medium text-charcoal mb-2">Number of Tickets</label>
-                  <div className="flex items-center gap-4">
-                    <button
-                      onClick={() => setQuantity(Math.max(1, quantity - 1))}
-                      className="w-10 h-10 rounded-full border-2 border-emerald-200 flex items-center justify-center hover:border-emerald-500 transition-colors"
-                    >
-                      <Minus className="w-4 h-4 text-charcoal" />
-                    </button>
-                    <span className="text-2xl font-bold text-charcoal w-12 text-center">{quantity}</span>
-                    <button
-                      onClick={() => setQuantity(Math.min(10, quantity + 1))}
-                      className="w-10 h-10 rounded-full border-2 border-emerald-200 flex items-center justify-center hover:border-emerald-500 transition-colors"
-                    >
-                      <Plus className="w-4 h-4 text-charcoal" />
-                    </button>
-                  </div>
-                </div>
-
-                <div>
-                  <label className="block text-sm font-medium text-charcoal mb-1.5">Full Name *</label>
-                  <input type="text" className="w-full px-4 py-3 rounded-xl border border-emerald-200 focus:border-emerald-500 focus:ring-2 focus:ring-emerald-500/20 outline-none transition-all text-charcoal bg-cream" placeholder="John O'Brien" />
-                </div>
-                <div>
-                  <label className="block text-sm font-medium text-charcoal mb-1.5">Email *</label>
-                  <input type="email" className="w-full px-4 py-3 rounded-xl border border-emerald-200 focus:border-emerald-500 focus:ring-2 focus:ring-emerald-500/20 outline-none transition-all text-charcoal bg-cream" placeholder="john@example.com" />
-                </div>
-                <div>
-                  <label className="block text-sm font-medium text-charcoal mb-1.5">Phone *</label>
-                  <input type="tel" className="w-full px-4 py-3 rounded-xl border border-emerald-200 focus:border-emerald-500 focus:ring-2 focus:ring-emerald-500/20 outline-none transition-all text-charcoal bg-cream" placeholder="(312) 555-0000" />
-                </div>
-
-                <div className="border-t border-emerald-100 pt-5">
-                  <div className="flex justify-between text-sm text-charcoal/60 mb-2">
-                    <span>{quantity} × ${pricePerTicket}</span>
-                    <span>${quantity * pricePerTicket}.00</span>
-                  </div>
-                  <div className="flex justify-between text-lg font-bold text-charcoal">
-                    <span>Total</span>
-                    <span className="text-emerald-800">${quantity * pricePerTicket}.00</span>
-                  </div>
-                </div>
-
-                <button className="w-full px-8 py-4 bg-gold-500 hover:bg-gold-400 text-emerald-950 font-bold rounded-full transition-all text-lg">
-                  Purchase Raffle Tickets
-                </button>
-
-                <p className="text-charcoal/40 text-xs text-center">
-                  Secure checkout powered by Stripe. Ticket numbers will be emailed to you.
-                </p>
-              </div>
-            </div>
+            {isPurchaseOpen() ? (
+              <PurchaseCard
+                itemId="raffle"
+                title="Raffle Tickets"
+                pricePerUnit={pricePerTicket}
+                unitLabel="ticket"
+                maxQuantity={10}
+                initialQuantity={1}
+                footnote="Your official ticket numbers will be emailed to you once payment is confirmed."
+                icon
+              />
+            ) : (
+              <SalesClosedCard title="Raffle Ticket Sales" />
+            )}
           </div>
         </div>
       </section>

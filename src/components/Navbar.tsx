@@ -14,6 +14,11 @@ const MOBILE_NAV = [
     children: [
       { href: "/events", label: "All Events" },
       { href: "/packages", label: "Sponsorship Packages" },
+      { href: "/cbc-dinner", label: "CBC Dinner Tickets" },
+      { href: "/grandstand-seats", label: "Grandstand Seats" },
+      { href: "/ad-book", label: "Parade Ad Book" },
+      { href: "/light-pole-banner", label: "Light Pole Banners" },
+      { href: "/raffle", label: "Raffle Tickets" },
       { href: "/queen-contest", label: "Queen Contest" },
     ],
   },
@@ -162,7 +167,7 @@ export default function Navbar() {
             </div>
 
             <div className="mt-8 px-4 text-emerald-600 text-xs">
-              <p>parade@chicagostpatricksdayparade.com</p>
+              <p>parade@chicagostpatricksdayparade.org</p>
             </div>
           </div>
 

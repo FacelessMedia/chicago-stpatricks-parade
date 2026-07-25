@@ -4,7 +4,7 @@ import {
   Clover, Calendar, MapPin, Clock, Users, Ship,
   Crown, ArrowRight, Star, Utensils, Award, Music, Heart, Camera
 } from "lucide-react";
-import CountdownTimer from "@/components/CountdownTimer";
+import { CountdownTimer } from "@/components/CountdownTimer";
 import SectionHeading from "@/components/SectionHeading";
 import { PARADE_INFO, SPONSORS } from "@/lib/data";
 
@@ -41,7 +41,7 @@ export default function Home() {
         <div className="relative z-10 text-center px-4 max-w-5xl mx-auto">
           <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 backdrop-blur-sm border border-white/10 mb-6">
             <Clover className="w-4 h-4 text-gold-400" />
-            <span className="text-emerald-200 text-sm font-medium">71st Annual · {PARADE_INFO.year}</span>
+            <span className="text-emerald-200 text-sm font-medium">72nd Annual · {PARADE_INFO.year}</span>
           </div>
 
           <h1 className="text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-bold font-heading text-white mb-4 text-shadow leading-tight">
@@ -51,7 +51,7 @@ export default function Home() {
           </h1>
 
           <div className="mb-4">
-            <p className="text-xs sm:text-sm uppercase tracking-[0.3em] text-gold-400/80 mb-1">2026 Theme</p>
+            <p className="text-xs sm:text-sm uppercase tracking-[0.3em] text-gold-400/80 mb-1">{PARADE_INFO.year} Theme</p>
             <p className="text-2xl sm:text-3xl md:text-4xl font-heading font-bold text-white">
               {PARADE_INFO.theme}
             </p>
@@ -88,7 +88,7 @@ export default function Home() {
           {/* Quick Stats */}
           <div className="mt-16 grid grid-cols-2 md:grid-cols-4 gap-6 max-w-3xl mx-auto">
             {[
-              { icon: Calendar, label: "March 14, 2026", sub: "Parade Day" },
+              { icon: Calendar, label: "March 13, 2027", sub: "Parade Day" },
               { icon: MapPin, label: "Columbus Drive", sub: "Downtown Chicago" },
               { icon: Clock, label: "12:00 PM", sub: "Kick-off Time" },
               { icon: Ship, label: "9:00 AM", sub: "River Dyeing" },
